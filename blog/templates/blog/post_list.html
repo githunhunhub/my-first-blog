@@ -1,24 +1,18 @@
 <!--此post_list会从视图views.py中获得所需-->
-<html>
-    <head>
-        <title>hunhun's blog</title>
 
-    </head>
+<!--以下extend意味着我们在 post_list.html模板文件中扩展
+    了 base.html 模板的内容-->
+{% extends 'blog/base.html' %}
 
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
-
-    <!--用for循环遍历posts,posts内容由models.py提供-->
+{% block content %}
     {% for post in posts %}
-        <div>
+        <div class="post">
             <!--post.xxx用于访问Post类中的相应域-->
             <h1><a href="/">{{ post.title }}</a></h1>
-            <p>published: {{ post.published_date }} Author: {{ post.author }}</p>
+            <div class="data">
+                {{ post.published_date }}{{ post.author }}
+            </div>
             <p>{{ post.text|linebreaks }}</p> <!--|linebreaks通过一个过滤器，使得行间隔编程段落-->
         </div>
     {% endfor %}
-    </body>
-
-</html>
+{% endblock content %}

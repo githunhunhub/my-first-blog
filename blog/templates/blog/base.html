@@ -1,0 +1,33 @@
+
+<!--基础模板是最重要的模板，它将扩展到网站的每一页-->
+<!--此post_list会从视图views.py中获得所需-->
+
+{% load staticfiles %}
+<html>
+    <head>
+        <title>hunhun's blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}" >
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Django Girls Blog</a></h1>
+        </div>
+        <!--用for循环遍历posts,posts内容由models.py提供-->
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    <!--下面创建了一个块block，这个是模板标签，它允许你在其中插入
+                        扩展自base.html的模板的HTML代码
+                    -->
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

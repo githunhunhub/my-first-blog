@@ -4,7 +4,7 @@ from django.db import models
 from django.utils import timezone
 
 
-class Post(models.Model):   # 定义一个Post对象
+class Post(models.Model):   # 定义一个Post对象模型
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)  # 定义title为有限制的字符类型
     text = models.TextField()     # 定义text为没有长度限制的长文本，用在blog的内容上
