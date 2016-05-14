@@ -15,4 +15,9 @@ from . import views
 '''
 urlpatterns = [
 	url(r'^$', views.post_list, name='post_list'),
+	# (?p<pk>[0-9]+)表示Django把里边东西变成称作pk的变量，并传递给视图
+	# pk是Primary key 主键的缩写
+	url(r'post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'),
+	url(r'post/new/$', views.post_new, name='post_new'),
+	url(r'^post/(?P<pk>[0-9]+)/edit/$', views.post_edit, name='post_edit'),
 ]

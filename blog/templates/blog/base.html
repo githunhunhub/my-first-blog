@@ -3,8 +3,11 @@
 <!--此post_list会从视图views.py中获得所需-->
 
 {% load staticfiles %}
+
+<!doctype html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>hunhun's blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -14,6 +17,9 @@
 
     <body>
         <div class="page-header">
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% endif %}
             <h1><a href="/">Django Girls Blog</a></h1>
         </div>
         <!--用for循环遍历posts,posts内容由models.py提供-->
